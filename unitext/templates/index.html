@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <title>Unitext</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"
+            integrity="sha256-k77iqKeo6Og1Lf5mawux2rTxjaV9zUtyOWKVX3VttKE="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<form id="convert-form">
+    <input type="file" name="file" id="convert-input-file">
+    <input type="radio" name="format" id="format-md" value="md"><label for="format-md">Markdown</label>
+    <input type="radio" name="format" id="format-html" value="html"><label for="format-html">Html</label>
+    <input type="radio" name="format" id="format-docx" value="docx"><label for="format-docx">Docx</label>
+    <button>
+        Submit!
+    </button>
+</form>
+
+<script src="{{ url_for('static', filename='main.js') }}" type="application/javascript"></script>
+</body>
+</html>
