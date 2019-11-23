@@ -2,24 +2,60 @@
 <head>
     <title>Unitext</title>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"
-            integrity="sha256-k77iqKeo6Og1Lf5mawux2rTxjaV9zUtyOWKVX3VttKE="
-            crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <form id="convert-form">
-    <input type="file" name="file" id="convert-input-file">
-    <input type="radio" name="format" id="format-md" value="md"><label for="format-md">Markdown</label>
-    <input type="radio" name="format" id="format-html" value="html"><label for="format-html">Html</label>
-    <input type="radio" name="format" id="format-docx" value="docx"><label for="format-docx">Docx</label>
-    <button>
-        Submit!
-    </button>
+    <h1 class="text-center mb-3">Unitext</h1>
+    <div class="form-group">
+        <div class="custom-file">
+            <input type="file" name="file" class="custom-file-input" id="convert-input-file">
+            <label class="custom-file-label" for="convert-input-file">Choose file</label>
+        </div>
+    </div>
+    <div class="form-group text-center mb-5">
+        <h1 class="h4 mb-2">Select format</h1>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+                <input type="radio" name="format" id="radio-format-md" autocomplete="off" checked>
+                Markdown
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="format" id="radio-format-html" autocomplete="off">
+                Html
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="format" id="radio-format-docx" autocomplete="off">
+                Docx
+            </label>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success">
+            Convert
+        </button>
+    </div>
 </form>
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.min.js"
+        integrity="sha256-k77iqKeo6Og1Lf5mawux2rTxjaV9zUtyOWKVX3VttKE="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 <script src="{{ url_for('static', filename='main.js') }}" type="application/javascript"></script>
 </body>
 </html>

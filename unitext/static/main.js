@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    bsCustomFileInput.init()
+});
+
 let $form = $('#convert-form');
 let $fileInput = $('#convert-input-file');
 $form.submit(event => {
