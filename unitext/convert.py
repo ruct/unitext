@@ -19,37 +19,24 @@ new_ext = {
 
 @bp.route("/<out_type>", methods=["POST", "GET"])
 def convert(out_type):
-    print(out_type)
-    if request.method == "GET":
-        return '''
-            <!doctype html>
-            <title>Upload new File</title>
-            <h1>Upload new File</h1>
-            <form action="" method=post enctype=multipart/form-data>
-                 <input type=file name=input_file> <br>
-                 <input type=submit value=Upload>
-            </form>        
-            '''
-
     file = request.files["file"]
+
     if not file:
-        return
+        return {'error': 'No file provided'}, 400
 
     data = file.read()
     mime = magic.from_buffer(data, True)
     ext = mimetypes.guess_extension(mime)[1:]
-    print(ext)
     if ext not in new_ext:
-        abort(400, "File format " + ext + " isn't supported")
+        return {'error': f'File format "{ext}" is not supported'}, 400
+
     ext = new_ext[ext]
-    print("New ext = " + ext)
 
     res_name = file.filename
     if res_name.count("."):
         res_name = res_name[:res_name.rfind(".")]
 
-    res_name += "." + ext
-    print(res_name)
+    res_name += "." + out_type
 
     cdata = str.encode(pypandoc.convert(data,
                                         out_type,
